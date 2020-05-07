@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import API from "./utils/API";
 import Nav from "./components/Nav/index";
 import Jumbotron from "./components/Jumbotron/index";
 import Input from "./components/Input";
@@ -20,6 +21,14 @@ class App extends Component {
     this.setState({
       [name]: value,
     });
+  };
+
+  handleFormSubmit = (event) => {
+    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+    event.preventDefault();
+    API.getBooks(this.state.bookSearch)
+      .then((res) => this.setState({ books: res.data.items }))
+      .catch((err) => console.log(err));
   };
 
   render() {
@@ -61,14 +70,15 @@ class App extends Component {
                 <h1 className="text-center">No Recipes to Display</h1>
               ) : (
                 <BookList>
-                  {this.state.recipes.map((book) => {
+                  {this.state.books.map((book) => {
                     return (
                       <BookListItem
-                        key={book.title}
-                        title={book.title}
-                        href={book.href}
-                        ingredients={book.ingredients}
-                        thumbnail={book.thumbnail}
+                        key={book.id}
+                        title={book.volumeInfo.title}
+                        authors={book.volumeInfo.authors}
+                        href={book.volumeInfo.canonicalVolumeLink}
+                        description={book.volumeInfo.description}
+                        thumbnail={book.volumeInfo.imageLinks.smallThumbnail}
                       />
                     );
                   })}
