@@ -48,12 +48,14 @@ class Saved extends Component {
                         title={book.title}
                         authors={book.authors}
                         link={book.link}
-                        synopsis={book.synopsis}
+                        description={book.description}
                         thumbnail={book.thumbnail}
-                      />
-                      <RemoveButton
-                        onClick={() => this.deleteFromDB(book._id)}
-                      />
+                        saved={book.saved}
+                      >
+                        <RemoveButton
+                          onClick={() => this.deleteFromDB(book._id)}
+                        />
+                      </BookListItem>
                     </div>
                   );
                 })}

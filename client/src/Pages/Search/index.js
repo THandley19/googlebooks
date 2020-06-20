@@ -4,7 +4,8 @@ import Jumbotron from "../../components/Jumbotron";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { Container, Row, Col } from "../../components/Grid";
-import { BookList, BookListItem } from "../../components/Books";
+import { BookList } from "../../components/Books";
+import BookListItem from "../../components/Books";
 import AddBookButton from "../../components/AddBookButton";
 
 class Search extends Component {
@@ -77,15 +78,7 @@ class Search extends Component {
                           authors={book.volumeInfo.authors}
                           href={book.volumeInfo.canonicalVolumeLink}
                           description={book.volumeInfo.description}
-                          thumbnail={book.volumeInfo.imageLinks.smallThumbnail}
-                        />
-
-                        <AddBookButton
-                          title={book.volumeInfo.title}
-                          authors={book.volumeInfo.authors}
-                          href={book.volumeInfo.canonicalVolumeLink}
-                          description={book.volumeInfo.description}
-                          thumbnail={book.volumeInfo.imageLinks.smallThumbnail}
+                          thumbnail={book.volumeInfo.imageLinks.thumbnail}
                         />
                       </div>
                     );

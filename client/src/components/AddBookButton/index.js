@@ -4,12 +4,14 @@ import axios from "axios";
 
 class AddBookBtn extends React.Component {
   postToDB = (book) => {
+    console.log(book);
     var dbBook = {
       title: book.title,
       authors: book.authors,
-      synopsis: book.synopsis,
+      description: book.description,
       thumbnail: book.thumbnail,
       link: book.link,
+      saved: true,
     };
 
     axios
