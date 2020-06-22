@@ -8,7 +8,7 @@ export function BookList({ children }) {
   return <ul className="list-group">{children}</ul>;
 }
 
-class BookListItem extends Component {
+export default class BookListItem extends Component {
   state = {
     data: this.props,
   };
@@ -64,5 +64,3 @@ class BookListItem extends Component {
     );
   }
 }
-
-export default BookListItem;

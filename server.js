@@ -1,10 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
 const mongoose = require("mongoose");
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -17,7 +17,8 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactgooglebooks"
+  process.env.MONGODB_URI ||
+    "mongodb://process.env.mongoDBUser:process.env.mongoDBPass@ds041831.mlab.com:41831/heroku_hvhvbdrl"
 );
 
 // Send every other request to the React app

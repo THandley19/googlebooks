@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col } from "../../components/Grid";
-import { BookList, BookListItem } from "../../components/Books";
+import BookList from "../../components/Books/";
+import BookListItem from "../../components/Books/";
 import axios from "axios";
 import RemoveButton from "../../components/RemoveButton";
 
